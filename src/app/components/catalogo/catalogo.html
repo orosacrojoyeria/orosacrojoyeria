@@ -1,0 +1,24 @@
+<section class="catalogo">
+  <div class="filtros">
+    <button class="filtro-btn" [class.activo]="filtroActual === 'todos'" (click)="filtrar('todos')">Todos</button>
+    <button class="filtro-btn" [class.activo]="filtroActual === 'anillos'" (click)="filtrar('anillos')">Anillos</button>
+    <button class="filtro-btn" [class.activo]="filtroActual === 'collares'" (click)="filtrar('collares')">Collares</button>
+    <button class="filtro-btn" [class.activo]="filtroActual === 'pulseras'" (click)="filtrar('pulseras')">Pulseras</button>
+    <button class="filtro-btn" [class.activo]="filtroActual === 'aretes'" (click)="filtrar('aretes')">Aretes</button>
+    <button class="filtro-btn" [class.activo]="filtroActual === 'tobilleras'" (click)="filtrar('tobilleras')">Tobilleras</button>
+  </div>
+
+  <div class="productos-grid">
+    <div class="producto-card" *ngFor="let producto of productosFiltrados">
+      <div class="producto-img">
+        <span class="producto-emoji">{{ producto.imagen }}</span>
+      </div>
+      <div class="producto-info">
+        <span class="producto-categoria">{{ producto.categoria }}</span>
+        <h3 class="producto-nombre">{{ producto.nombre }}</h3>
+        <p class="producto-precio">{{ producto.precio | currency:'COP':'symbol':'1.0-0' }}</p>
+        <button class="btn-agregar" (click)="agregar(producto)">+ Agregar</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+.header {
+  background: var(--borgona-oscuro);
+  border-bottom: 1px solid var(--dorado);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-nombre {
+  color: var(--dorado);
+  font-size: 22px;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+.logo-sub {
+  color: var(--beige);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.carrito-btn {
+  background: var(--borgona);
+  border: 1px solid var(--dorado);
+  color: var(--dorado);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carrito-count {
+  background: var(--dorado);
+  color: var(--negro);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

@@ -1,0 +1,60 @@
+<div class="overlay" [class.abierto]="abierto" (click)="cerrarFuera($event)">
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Tu Pedido</h2>
+      <button class="btn-cerrar" (click)="cerrar()">✕</button>
+    </div>
+
+    <div class="panel-items">
+      <p class="vacio" *ngIf="items.length === 0">Tu carrito está vacío</p>
+
+      <div class="item" *ngFor="let item of items">
+        <span class="item-emoji">{{ item.producto.imagen }}</span>
+        <div class="item-info">
+          <p class="item-nombre">{{ item.producto.nombre }}</p>
+          <p class="item-precio">{{ item.producto.precio * item.cantidad | currency:'COP':'symbol':'1.0-0' }}</p>
+          <div class="item-qty">
+            <button class="qty-btn" (click)="quitar(item.producto.id)">−</button>
+            <span>{{ item.cantidad }}</span>
+            <button class="qty-btn" (click)="agregar(item.producto)">+</button>
+          </div>
+        </div>
+        <button class="btn-eliminar" (click)="eliminar(item.producto.id)">✕</button>
+      </div>
+    </div>
+
+    <div class="panel-footer" *ngIf="items.length > 0">
+      <div class="total">
+        <span>Total</span>
+        <span class="total-valor">{{ total | currency:'COP':'symbol':'1.0-0' }}</span>
+      </div>
+
+      <div class="formulario">
+        <div class="campo">
+          <label>Nombre completo</label>
+          <input type="text" [(ngModel)]="nombre" placeholder="Tu nombre" />
+        </div>
+        <div class="campo">
+          <label>Teléfono / WhatsApp</label>
+          <input type="text" [(ngModel)]="telefono" placeholder="+57 300 000 0000" />
+        </div>
+        <div class="campo">
+          <label>Ciudad</label>
+          <input type="text" [(ngModel)]="ciudad" placeholder="Ej: Armenia, Quindío" />
+        </div>
+        <div class="campo">
+          <label>Dirección</label>
+          <input type="text" [(ngModel)]="direccion" placeholder="Calle, carrera, barrio..." />
+        </div>
+        <div class="campo">
+          <label>Notas (opcional)</label>
+          <textarea [(ngModel)]="notas" placeholder="Tallas, colores, dedicatoria..."></textarea>
+        </div>
+        <p class="error" *ngIf="mostrarError">Por favor completa todos los campos.</p>
+        <button class="btn-whatsapp" (click)="enviarWhatsApp()">
+          Enviar pedido por WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
