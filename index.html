@@ -1,13 +1,25 @@
 <!doctype html>
-<html lang="en" data-beasties-container>
+<html lang="es" data-beasties-container>
 <head>
   <meta charset="utf-8">
-  <title>Oro Sacro</title>
+  <title>Oro Sacro Joyería</title>
   <base href="https://orosacrojoyeria.github.io/orosacrojoyeria/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="favicon.png">
+  <script type="text/javascript">
+    // Restaura la URL real (ej: /orosacrojoyeria/producto/SKU) después del
+    // redirect que hace 404.html, ANTES de que Angular arranque.
+    (function (l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&');
+        }).join('?');
+        window.history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash);
+      }
+    }(window.location));
+  </script>
 <style>:root{--borgona:#7A1E2C;--borgona-oscuro:#4e1219;--borgona-claro:#9B2335;--dorado:#C6A75E;--dorado-claro:#E8D08A;--dorado-suave:rgba(198, 167, 94, .15);--negro:#0B0B0D;--negro-suave:#141014;--gris-oscuro:#1C1518;--beige:#E8D8C3;--beige-suave:rgba(232, 216, 195, .08);--blanco:#Ffffff}*{box-sizing:border-box;margin:0;padding:0}body{color:var(--beige);font-family:Georgia,serif;background-color:#fff}html{height:100%;overflow-x:hidden}@supports (-webkit-touch-callout: none){body{background-attachment:scroll}}</style><link rel="stylesheet" href="styles-MMIVW4C2.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-MMIVW4C2.css"></noscript></head>
 <body>
   <app-root></app-root>
-<script src="main-VGJ6ULKE.js" type="module"></script></body>
+<script src="main-KZBZDJ2K.js" type="module"></script></body>
 </html>
